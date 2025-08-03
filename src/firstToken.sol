@@ -1,18 +1,19 @@
-pragma solidity ^0.8.0
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
 contract MyToken {
 
     string public name = "MyToken";
     string public symbol = "MTK";
 
-    mapping(address => unit256) public balanceOf;
-    event Transfer(address indexed from, address indexed to, unit256 value);
+    mapping(address => uint256) public balanceOf;
+    event Transfer(address indexed from, address indexed to, uint256 value);
 
-    constructor(unit256 initialSupply) {
+    constructor(uint256 initialSupply) {
         balanceOf[msg.sender] = initialSupply;
     }
 
-    function transfer(address _to, unit256 _value) public returns (bool success) {
+    function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value, "Insufficient balance");
 
 
